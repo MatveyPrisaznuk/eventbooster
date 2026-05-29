@@ -1,3 +1,5 @@
+@use '../bais/variable.scss';
+
 .header {
   padding-top: 78px;
   padding-bottom: 52px;
@@ -58,7 +60,7 @@
     width: 106px;
 
     @media screen and (min-width: 768px) {
-      width: 153px;
+      width: 168px;
     }
 
     @media screen and (min-width: 1200px) {
@@ -67,7 +69,7 @@
   }
 
   &__text {
-    color: #dc56c5;
+    color: variable.$maintext-color;
     text-align: center;
     font-size: 18px;
     font-weight: 900;
@@ -107,30 +109,28 @@
 
 .form {
   &__search {
-    color: #939393;
+    color: variable.$inputandfooter-color;
     font-size: 16px;
     font-weight: 400;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 12px 118px 10px 30px;
-    width: 122px;
+    padding: 12px 45px 10px 30px;
   }
 
   &__choose {
-    color: #939393;
+    color: variable.$inputandfooter-color;
     font-size: 16px;
     font-weight: 400;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 12px 100px 10px 10px;
-    width: 270px;
+    padding: 12px 140px 10px 10px;
   }
 
   &__svgsearch,
   &__svgchoose {
-    fill: #939393;
+    fill: variable.$inputandfooter-color;
     width: 12px;
     height: 12px;
   }
@@ -145,7 +145,7 @@
     }
 
     @media screen and (min-width: 1200px) {
-     right: 633px;
+      right: 633px;
     }
   }
 

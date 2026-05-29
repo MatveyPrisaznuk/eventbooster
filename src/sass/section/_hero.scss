@@ -1,0 +1,181 @@
+@use '../bais/variable.scss';
+
+.hero {
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/tablet/hero-tablet@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../img/tablet/hero-tablet@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    background-image: url(../img/desktop/hero-desktop@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../img/desktop/hero-desktop@2x.jpg);
+    }
+  }
+
+  &__listcards {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // gap: 14px;
+    // row-gap: 50px;
+
+    // @media screen and (min-width: 768px) {
+    //   gap: 27px;
+    //   row-gap: 58px;
+    // }
+
+    // @media screen and (min-width: 1200px) {
+    //   gap: 56px;
+    //   row-gap: 63px;
+    // }
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    @media screen and (min-width: 768px) {
+      row-gap: 58px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1200px) {
+      row-gap: 63px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.listcards {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // box-sizing: border-box;
+    // flex: 0 0 calc((100% - 14px) / 2);
+
+    // @media screen and (min-width: 768px) {
+    //   flex-basis: calc((100% - 54px) / 3);
+    // }
+
+    // @media screen and (min-width: 1200px) {
+    //   flex-basis: calc((100% - 168px) / 4);
+    // }
+  }
+
+  &__image {
+    width: 128px;
+    height: 161px;
+    border-radius: 40px 0px 40px 0;
+
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      height: 227px;
+    }
+  }
+
+  &__group {
+    margin-top: 5px;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    width: 112px;
+    color: variable.$maintext-color;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      font-size: 16px;
+    }
+  }
+
+  &__time {
+    color: variable.$dinamicdesc-color;
+    font-size: 14px;
+    font-weight: 400;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__point {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  &__svg {
+    width: 6px;
+    height: 9px;
+
+    @media screen and (min-width: 768px) {
+      width: 9px;
+      height: 10px;
+    }
+  }
+
+  &__place {
+    color: variable.$dinamicdesc-color;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 60px;
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 80px;
+  }
+
+  &__button {
+    background: #ff3d9a;
+    color: variable.$dinamicdesc-color;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+
+  &__button:hover {
+    background: #ff5fb0;
+  }
+
+  &__text {
+    color: variable.$dinamicdesc-color;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
