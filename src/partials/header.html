@@ -1,19 +1,32 @@
 <header class="header">
     <div class="container">
-        <!-- <svg class="header__svg">
-            <use href="./img/eventeaster.svg"></use>
-        </svg> -->
-        <img src="../img/logoevent@2x.png" alt="logo" class="header__img">
+        <img src="../img/new-logo.png" alt="logo" class="header__img">
         <h1 class="header__text">FIND BEST EVENTS AROUND THE WORLD</h1>
         <form class="header__form">
             <input type="text" class="form__search" placeholder="Start searching">
-          <svg class="form__svgsearch">
-            <use href="./img/search-icon.svg"></use>
-        </svg>
-             <button type="button" class="form__choose">Choose country</button>
-              <svg class="form__svgchoose">
-            <use href="./img/polygon-choose.svg"></use>
-        </svg>
+            <svg class="form__svgsearch">
+                <use href="./img/search-icon.svg"></use>
+            </svg>
+            <div class="form__choose">
+                <p class="choose__text">Choose country</p>
+                <ul class="choose__list">
+                    <li class="choose__item" data-country="">
+                        <p class="choose__desc">All world</p>
+                    </li>
+                    <li class="choose__item" data-country="US">
+                        <p class="choose__desc">United States</p>
+                    </li>
+                    <li class="choose__item" data-country="UK">
+                        <p class="choose__desc">Great Britian</p>
+                    </li>
+                    <li class="choose__item" data-country="CA">
+                        <p class="choose__desc">Canada</p>
+                    </li>
+                </ul>
+            </div>
+            <svg class="form__svgchoose">
+                <use href="./img/polygon-choose.svg"></use>
+            </svg>
         </form>
     </div>
 </header>

@@ -1,0 +1,258 @@
+@use '../bais/variable.scss';
+
+.hero {
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/tablet/hero-tablet@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../img/tablet/hero-tablet@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    background-image: url(../img/desktop/hero-desktop@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../img/desktop/hero-desktop@2x.jpg);
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+  }
+
+  &__listcards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    position: relative;
+    z-index: -1;
+    @media screen and (min-width: 768px) {
+      row-gap: 58px;
+      grid-template-columns: repeat(3, 1fr);
+      z-index: 1;
+    }
+
+    @media screen and (min-width: 1200px) {
+      row-gap: 63px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.listcards {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    width: 128px;
+    height: 161px;
+    border-radius: 40px 0px 40px 0;
+    object-fit: cover;
+
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      height: 227px;
+    }
+  }
+
+  &__group {
+    margin-top: 5px;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    width: 112px;
+    color: variable.$maintext-color;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      font-size: 16px;
+    }
+  }
+
+  &__time {
+    color: variable.$dinamicdesc-color;
+    font-size: 14px;
+    font-weight: 400;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__point {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  &__svg {
+    width: 10px;
+    height: 10px;
+
+    @media screen and (min-width: 768px) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__place {
+    color: variable.$dinamicdesc-color;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+  height: 0;
+}
+
+.pagination__container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 80px;
+  }
+}
+
+.arrow\:text {
+  display: block;
+  font-size: 13px;
+}
+
+.pagination\:number {
+  --size: 32px;
+  --margin: 6px;
+  margin: 0 var(--margin);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  max-width: auto;
+  min-width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 6px;
+  color: white;
+}
+
+.pagination\:active {
+  background: #676767;
+  position: relative;
+}
+
+.lds-facebook {
+  color: #ffffff;
+}
+
+.lds-facebook,
+.lds-facebook .load__point {
+  box-sizing: border-box;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook .load__point {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: currentColor;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook .load__point:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook .load__point:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook .load__point:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+// --------------------------------------------
+
+div.center {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+
+  @media screen and (min-width: 768px) {
+    top: 100px;
+    left: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    top: 100px;
+    left: 400px;
+  }
+}
+div.center p {
+  width: 200px;
+  font-size: 40px;
+  margin: 0 auto;
+  color: white;
+  font-family: 'Tw Cen MT Condensed';
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+}
+div.center a {
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 100px;
+  color: yellow;
+}

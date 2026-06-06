@@ -1,3 +1,5 @@
+@use '../bais/variable.scss';
+
 .header {
   padding-top: 78px;
   padding-bottom: 52px;
@@ -35,22 +37,6 @@
     }
   }
 
-  //   &__svg {
-  //     fill: #fff;
-  //     width: 214px;
-  //     height: 180px;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     border-radius: 213.973px;
-  //     background: linear-gradient(
-  //       136deg,
-  //       rgba(196, 196, 196, 0.03) 10.75%,
-  //       rgba(196, 196, 196, 0) 92.33%
-  //     );
-  //     backdrop-filter: blur(15px);
-  //   }
-
   &__img {
     position: absolute;
     top: 0;
@@ -58,7 +44,7 @@
     width: 106px;
 
     @media screen and (min-width: 768px) {
-      width: 153px;
+      width: 168px;
     }
 
     @media screen and (min-width: 1200px) {
@@ -67,7 +53,7 @@
   }
 
   &__text {
-    color: #dc56c5;
+    color: variable.$maintext-color;
     text-align: center;
     font-size: 18px;
     font-weight: 900;
@@ -107,30 +93,29 @@
 
 .form {
   &__search {
-    color: #939393;
+    color: variable.$inputandfooter-color;
     font-size: 16px;
     font-weight: 400;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 12px 118px 10px 30px;
-    width: 122px;
+    padding: 12px 45px 10px 30px;
   }
 
   &__choose {
-    color: #939393;
-    font-size: 16px;
-    font-weight: 400;
+    color: variable.$inputandfooter-color;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 12px 100px 10px 10px;
-    width: 270px;
+    padding: 12px 125px 10px 25px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
   }
 
   &__svgsearch,
   &__svgchoose {
-    fill: #939393;
+    fill: variable.$inputandfooter-color;
     width: 12px;
     height: 12px;
   }
@@ -145,7 +130,7 @@
     }
 
     @media screen and (min-width: 1200px) {
-     right: 633px;
+      right: 633px;
     }
   }
 
@@ -162,5 +147,33 @@
     @media screen and (min-width: 1200px) {
       right: 337px;
     }
+  }
+}
+
+.choose {
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__list {
+    display: none;
+    flex-direction: column;
+    top: 50px;
+    left: -5px;
+    position: absolute;
+    border-radius: 20px;
+    background: rgba(22, 22, 22, 0.7);
+    padding: 12px 125px 10px 25px;
+    z-index: 10;
+    width: 300px;
+    gap: 10px;
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+  &__desc {
+    width: 199px;
   }
 }
