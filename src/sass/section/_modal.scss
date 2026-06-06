@@ -1,63 +1,110 @@
 .backdrop {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
+// .is-hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   pointer-events: none;
+// }
 
 .modal {
   position: relative;
-  width: 1000px;
-  min-height: 650px;
+  width: 900px;
+  height: 1023px;
   background: #fff5ff;
-  border-radius: 80px;
+ border-radius: 300px 0;
   padding: 60px 50px;
   display: flex;
   gap: 40px;
+  @media screen and (max-width: 1200px) {
+    width: 595.0px;
+    height: 900.0px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 272.0px;
+    height: 915.0px;
+display: flex;
+border-radius: 150px 0;
+   padding: 0 ;
+  }
 }
 
-.modal-left {
-  width: 430px;
-  flex-shrink: 0;
-}
+
 
 .poster {
-  width: 100%;
-  display: block;
-  border-radius: 5px;
+width: 360.0px;
+height: 670.0px;
+margin-top: 143px;
+@media screen and (max-width: 1200px) {
+  width: 233.0px;
+height: 440.0px;
+margin-top: 120px;
+}
+@media screen and (max-width: 768px) {
+  width: 0px;
+  height: 0px;
+}
 }
 
 .modal-right {
   flex: 1;
   position: relative;
-  padding-bottom: 70px;
+  @media screen and (max-width:768px) {
+  height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 .artist-avatar {
-  width: 90px;
-  height: 90px;
-  display: block;
-  margin: 0 auto 30px;
+ width: 100.0px;
+height: 100.0px;
+ position: relative;
+ right: 30px;
+ 
+  display: flex;
+  align-items: center;
+ margin-bottom: 49px;
   border-radius: 50%;
   object-fit: cover;
+  @media screen and (max-width: 1200px) {
+    width: 70.0px;
+height: 70.0px;
+margin-bottom: 46px;
+position: relative;
+right: 46px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 102.0px;
+height: 102.0px;
+display: flex;
+justify-content: center;
+margin-bottom: 22px;
+left: 80px;
+top: 15px;
+  }
 }
 
 .info-block {
   margin-bottom: 25px;
+@media screen and (max-width: 1200px) {
+  margin-bottom: 0;
+}
 }
 
 .title {
@@ -65,20 +112,123 @@
   font-size: 24px;
   font-weight: 700;
   color: #d84fd7;
+   @media screen and (max-width: 1200px)  {
+  font-size: 20px;
+  margin-bottom: 2px;
+  margin-top: 17px;
+  }
+  @media screen and (max-width:768px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .text {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.4;
-  color: #333;
+  color: #0E0E0E;
+  
+  @media screen and (max-width: 1200px)  {
+    font-size: 16px;
+    
 }
-
+@media screen and (max-width:768px) {
+color: #3f3f3f;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-left: 15px;
+  font-size: 17px;
+  position: relative;
+  left: 50px;
+}
+}
+.text1{
+  @media screen and (max-width:768px) {
+      color: #3f3f3f;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-left: 15px;
+  font-size: 17px;
+  position: relative;
+  left: 70px;
+  }
+}
+.text-info{
+  @media screen and (max-width:768px) {
+       color: #3f3f3f;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-left: 15px;
+  font-size: 17px;
+  position: relative;
+  left: 70px;
+  }
+}
+.text-info1{
+  @media screen and (max-width: 768px) {
+      color: #3f3f3f;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-left: 15px;
+  font-size: 17px;
+  position: relative;
+  left: 100px;
+  }
+}
+.span{
+  @media screen and (max-width:768px) {
+      color: #3f3f3f;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-left: 15px;
+  font-size: 17px;
+  position: relative;
+  right: 50px;
+  }
+}
 .price {
   margin-bottom: 15px;
   font-size: 18px;
   color: #333;
+  @media screen and (max-width: 1200px){
+    font-size: 16px;
+    margin-bottom: 0;
+   
+  }
+  
+  @media screen and (max-width:768px) {
+     display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #333;
+  }
 }
 
+.price::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background: url("../img/ticket1.svg") center/contain no-repeat;
+  position: relative;
+  top: 5px;
+  right: 11px;
+  @media screen and (max-width:768px) {
+    bottom: 10px;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+.price-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 .ticket-btn {
   margin-bottom: 20px;
   padding: 14px 28px;
@@ -88,10 +238,21 @@
   color: #fff;
   font-size: 16px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: background 0.3s;
+  @media screen and (max-width: 1200px) {
+    width: 145.0px;
+  height: 40.0px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  }
+  @media screen and (max-width:768px) {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 60px;
+  }
 }
 
 .ticket-btn:hover {
@@ -99,12 +260,13 @@
 }
 
 .author-btn {
-  position: absolute;
-
-  left: 50%;
+  left: 35px;
   bottom: 0;
   transform: translateX(-50%);
-  padding: 14px 30px;
+  position: relative;
+  bottom: 40px;
+  width: 255.0px;
+  height: 40.0px;
   border: 2px solid #6c2cff;
   border-radius: 8px;
   background: transparent;
@@ -112,7 +274,17 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 45px;
   transition: 0.3s;
+  @media screen and (max-width:1200px) {
+   margin-top: 0;
+    margin-top: 27px ;
+    top: 5px;
+  }
+  @media screen and (max-width: 768px) {
+    left: 130px;
+  }
+  
 }
 
 .author-btn:hover {
@@ -133,7 +305,20 @@
   background: transparent;
   cursor: pointer;
   transition: transform 0.3s;
+   @media screen and (max-width: 1200px) {
+width: 30.0px;
+height: 30.0px;
+  }
+  @media screen and (max-width: 768px) {
+     position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  }
 }
+
 
 .close-btn:hover {
   transform: rotate(90deg);
@@ -143,10 +328,14 @@
   width: 24px;
   height: 24px;
   stroke: #6c2cff;
-  fill: transparent;
-  transition: stroke 0.3s;
+   @media screen and (max-width: 1200px) {
+width: 30.0px;
+height: 30.0px;
+ 
+  }
 }
 
 .close-btn:hover .close-icon {
   stroke: #ff00ff;
 }
+
