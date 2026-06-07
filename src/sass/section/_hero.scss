@@ -167,7 +167,7 @@
   justify-content: center;
   cursor: pointer;
   padding: 0 6px;
-  color: white;
+  color: variable.$dinamicdesc-color;
 }
 
 .pagination\:active {
@@ -176,7 +176,7 @@
 }
 
 .lds-facebook {
-  color: #ffffff;
+  color: variable.$dinamicdesc-color;
 }
 
 .lds-facebook,
