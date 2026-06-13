@@ -1,5 +1,5 @@
 @use '../bais/variable.scss';
-
+@import'../utils/mixin';
 .header {
   padding-top: 78px;
   padding-bottom: 52px;
@@ -72,16 +72,18 @@
   }
 
   &__form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+    @include flexbox($display: flex, $wrap: wrap, $gap: 25px);
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 25px;
     margin-top: 25px;
     position: relative;
 
     @media screen and (min-width: 768px) {
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: center;
+      @include flexbox($wrap: nowrap, $justify: center, $align: center, $gap: 25px);
+      // flex-wrap: nowrap;
+      // justify-content: center;
+      // align-items: center;
       margin-top: 27px;
     }
 
