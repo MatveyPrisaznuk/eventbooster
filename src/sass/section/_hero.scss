@@ -64,12 +64,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease;
   }
-  //   &__item:hover{
-  //     animation: zoomIn;
-  //   animation-duration: 2s;
-  // --animate-repeat: 2;
-  //   }
+
+  &__item:hover {
+    transform: scale(1.08);
+  }
 
   &__image {
     width: 128px;
