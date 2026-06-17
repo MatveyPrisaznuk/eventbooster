@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 const API_KEY = 'jXZOafnGYsrmKAOfdIhi31h8j1RlfCR5';
-let page = 0;
+let page = 0
 const inputRef = document.querySelector('.form__search');
 const galleryList = document.querySelector('.hero__listcards');
 const formRef = document.querySelector('.header__form');
@@ -29,7 +29,6 @@ const loadEvents = debounce(async () => {
   renderPagination(totalPages, currentPage);
 }, 900);
 
-loadEvents();
 
 inputRef.addEventListener('input', event => {
   pagination.style.display = 'none';
@@ -62,12 +61,12 @@ function createEvent(array) {
   pagination.style.display = 'flex';
 
   const item = array
-    .map(({ name, images, dates, _embedded }) => {
+    .map(({ name, images, dates, _embedded, id }) => {
       const image = images?.[0]?.url || '';
       const date = dates?.start?.localDate || 'Unknown date';
       const place = _embedded?.venues?.[0]?.name || 'Unknown place';
       return `
-        <li class="listcards__item">
+        <li class="listcards__item" data-id="${id}">
           <img src="${image}"
                alt="${name}"
                class="listcards__image">
@@ -185,3 +184,108 @@ function renderPagination(totalPages, currentPage) {
   `;
   pagination.innerHTML = html;
 }
+
+
+
+
+const list = document.querySelector(".hero__listcards");
+const modal = document.querySelector("[data-modal]");
+const modalWrap = document.querySelector(".modal__wrap");
+const closeBtn = document.querySelector("[data-close]");
+const body = document.body;
+
+
+
+
+
+list.addEventListener("click", async e => {
+  const card = e.target.closest(".listcards__item");
+  
+  if (!card) return;
+
+  const id = card.dataset.id;
+  const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`);
+  const ev = await response.json();
+
+  modalWrap.innerHTML = createModalMarkup(ev);
+  modal.classList.remove("backdrop-hidden");
+  body.classList.add("no-scroll");
+});
+
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (!e.target.closest(".modal")) closeModal(); });
+document.addEventListener("keydown", e => { if (e.code === "Escape") closeModal(); });
+
+function closeModal() {
+  modal.classList.add("backdrop-hidden");
+  body.classList.remove("no-scroll");
+}
+
+
+function createModalMarkup(ev) {
+  return `
+    <img class="modal__preview" src="${ev.images?.[0]?.url || ''}" />
+
+    <div class="content">
+      <img class="content__image" src="${ev.images?.[0]?.url || ''}" />
+
+      <ul class="content__list">
+
+        <li>
+          <h2 class="modal__title">INFO</h2>
+          <p class="modal__text">${ev.info || "No information"}</p>
+        </li>
+
+        <li>
+          <h2 class="modal__title">WHEN</h2>
+          <p class="modal__text">${ev.dates?.start?.localDate || ""}</p>
+          <p class="modal__text">${ev.dates?.start?.localTime || ""}</p>
+        </li>
+
+        <li>
+          <h2 class="modal__title">WHERE</h2>
+          <p class="modal__text">${ev._embedded?.venues?.[0]?.city?.name || ""}</p>
+          <p class="modal__text">${ev._embedded?.venues?.[0]?.name || ""}</p>
+        </li>
+
+        <li>
+          <h2 class="modal__title">WHO</h2>
+          <p class="modal__text">${ev.name || ""}</p>
+        </li>
+
+        <li class="modal__pric">
+          <h2 class="modal__title">PRICES</h2>
+
+          <div class="price__wrap">
+          <svg class="price__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 20"><path d="M3.22 0H0v19.33h3.22zm8.11 0H8.1v19.33h3.23zm4.88 0h-3.22v19.33h3.22zM29 0h-4.78v19.33H29zM6.44 0H4.88v19.33h1.56zm12.89 0h-1.56v19.33h1.56zm3.23 0h-1.57v19.33h1.57z" fill="#0E0E0E"/></svg>
+            <p class="modal__text">Standart 300-500 UAH</p>
+            
+          </div>
+
+          <a class="modal__btn" href="${ev.url || '#'}" target="_blank">
+            BUY TICKETS
+          </a>
+
+          <div class="price__wrap">
+            <svg class="price__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 20"><path d="M3.22 0H0v19.33h3.22zm8.11 0H8.1v19.33h3.23zm4.88 0h-3.22v19.33h3.22zM29 0h-4.78v19.33H29zM6.44 0H4.88v19.33h1.56zm12.89 0h-1.56v19.33h1.56zm3.23 0h-1.57v19.33h1.57z" fill="#0E0E0E"/></svg>
+            <p class="modal__text">VIP 1000-1500 UAH</p>
+          </div>
+
+          <a class="modal__btn" href="${ev.url || '#'}" target="_blank">
+            BUY TICKETS
+          </a>
+
+        </li>
+
+      </ul>
+    </div>
+
+    <a class="btn-info" href="${ev.url || '#'}" target="_blank">
+      MORE FROM THIS AUTHOR
+    </a>
+  `;
+}
+
+
+loadEvents();
