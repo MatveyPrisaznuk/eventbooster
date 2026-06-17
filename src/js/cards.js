@@ -74,7 +74,7 @@ function createEvent(array) {
             <p class="listcards__time">${date}</p>
             <div class="listcards__point">
               <svg class="listcards__svg">
-                <use href="/img/pointplace.svg"></use>
+                <use href="../img/pointplace.svg"></use>
               </svg>
               <p class="listcards__place">${place}</p>
             </div>
