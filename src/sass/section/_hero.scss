@@ -33,9 +33,6 @@
 
   &__box {
     @include flexbox($display: flex, $justify: center, $align: center);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     margin-top: 200px;
   }
 
@@ -44,11 +41,9 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 50px;
     position: relative;
-    z-index: -1;
     @media screen and (min-width: 768px) {
       row-gap: 58px;
       grid-template-columns: repeat(3, 1fr);
-      z-index: 1;
     }
 
     @media screen and (min-width: 1200px) {
@@ -60,7 +55,6 @@
 
 .listcards {
   &__item {
-    // @include flexbox($display: flex, $direction: column, $align: center);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,11 +86,6 @@
       $direction: column
     );
     margin-top: 5px;
-    // gap: 5px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
   }
 
   &__title {
@@ -123,7 +112,6 @@
   }
 
   &__point {
-    // @include flexbox($display: flex, $align: center, $gap: 3px);
     display: flex;
     align-items: center;
     gap: 3px;
@@ -153,7 +141,7 @@
 }
 
 .pagination__container {
-  // @include flexbox($display: flex, $align: center, $justify: center);
+  @include flexbox($display: flex, $align: center, $justify: center);
   display: none;
   align-items: center;
   justify-content: center;
@@ -170,7 +158,6 @@
 }
 
 .pagination\:number {
-  // @include flexbox($display: flex,$align: center, $justify: center);
   --size: 32px;
   --margin: 6px;
   margin: 0 var(--margin);
