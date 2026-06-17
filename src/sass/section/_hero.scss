@@ -120,11 +120,7 @@
   &__svg {
     width: 10px;
     height: 10px;
-
-    @media screen and (min-width: 768px) {
-      width: 10px;
-      height: 10px;
-    }
+    fill: white;
   }
 
   &__place {
