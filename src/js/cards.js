@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 const API_KEY = 'jXZOafnGYsrmKAOfdIhi31h8j1RlfCR5';
-let page = 0
+let page = 0;
 const inputRef = document.querySelector('.form__search');
 const galleryList = document.querySelector('.hero__listcards');
 const formRef = document.querySelector('.header__form');
@@ -28,7 +28,6 @@ const loadEvents = debounce(async () => {
   const currentPage = res.page?.number || 0;
   renderPagination(totalPages, currentPage);
 }, 900);
-
 
 inputRef.addEventListener('input', event => {
   pagination.style.display = 'none';
@@ -75,7 +74,7 @@ function createEvent(array) {
             <p class="listcards__time">${date}</p>
             <div class="listcards__point">
               <svg class="listcards__svg">
-                <use href="./img/pointplace.svg"></use>
+                <use href="/img/pointplace.svg"></use>
               </svg>
               <p class="listcards__place">${place}</p>
             </div>
@@ -185,43 +184,40 @@ function renderPagination(totalPages, currentPage) {
   pagination.innerHTML = html;
 }
 
-
-
-
-const list = document.querySelector(".hero__listcards");
-const modal = document.querySelector("[data-modal]");
-const modalWrap = document.querySelector(".modal__wrap");
-const closeBtn = document.querySelector("[data-close]");
+const list = document.querySelector('.hero__listcards');
+const modal = document.querySelector('[data-modal]');
+const modalWrap = document.querySelector('.modal__wrap');
+const closeBtn = document.querySelector('[data-close]');
 const body = document.body;
 
+list.addEventListener('click', async e => {
+  const card = e.target.closest('.listcards__item');
 
-
-
-
-list.addEventListener("click", async e => {
-  const card = e.target.closest(".listcards__item");
-  
   if (!card) return;
 
   const id = card.dataset.id;
-  const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`);
+  const response = await fetch(
+    `https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`
+  );
   const ev = await response.json();
 
   modalWrap.innerHTML = createModalMarkup(ev);
-  modal.classList.remove("backdrop-hidden");
-  body.classList.add("no-scroll");
+  modal.classList.remove('backdrop-hidden');
+  body.classList.add('no-scroll');
 });
 
-
-closeBtn.addEventListener("click", closeModal);
-modal.addEventListener("click", e => { if (!e.target.closest(".modal")) closeModal(); });
-document.addEventListener("keydown", e => { if (e.code === "Escape") closeModal(); });
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', e => {
+  if (!e.target.closest('.modal')) closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.code === 'Escape') closeModal();
+});
 
 function closeModal() {
-  modal.classList.add("backdrop-hidden");
-  body.classList.remove("no-scroll");
+  modal.classList.add('backdrop-hidden');
+  body.classList.remove('no-scroll');
 }
-
 
 function createModalMarkup(ev) {
   return `
@@ -234,24 +230,24 @@ function createModalMarkup(ev) {
 
         <li>
           <h2 class="modal__title">INFO</h2>
-          <p class="modal__text">${ev.info || "No information"}</p>
+          <p class="modal__text">${ev.info || 'No information'}</p>
         </li>
 
         <li>
           <h2 class="modal__title">WHEN</h2>
-          <p class="modal__text">${ev.dates?.start?.localDate || ""}</p>
-          <p class="modal__text">${ev.dates?.start?.localTime || ""}</p>
+          <p class="modal__text">${ev.dates?.start?.localDate || ''}</p>
+          <p class="modal__text">${ev.dates?.start?.localTime || ''}</p>
         </li>
 
         <li>
           <h2 class="modal__title">WHERE</h2>
-          <p class="modal__text">${ev._embedded?.venues?.[0]?.city?.name || ""}</p>
-          <p class="modal__text">${ev._embedded?.venues?.[0]?.name || ""}</p>
+          <p class="modal__text">${ev._embedded?.venues?.[0]?.city?.name || ''}</p>
+          <p class="modal__text">${ev._embedded?.venues?.[0]?.name || ''}</p>
         </li>
 
         <li>
           <h2 class="modal__title">WHO</h2>
-          <p class="modal__text">${ev.name || ""}</p>
+          <p class="modal__text">${ev.name || ''}</p>
         </li>
 
         <li class="modal__pric">
@@ -286,6 +282,5 @@ function createModalMarkup(ev) {
     </a>
   `;
 }
-
 
 loadEvents();
