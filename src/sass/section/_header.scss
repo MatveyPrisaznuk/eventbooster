@@ -97,9 +97,9 @@
   &__search {
     color: variable.$inputandfooter-color;
     font-size: 16px;
-    font-weight: 400;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 12px 45px 10px 30px;
   }
@@ -107,49 +107,49 @@
   &__choose {
     color: variable.$inputandfooter-color;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 12px 125px 10px 25px;
-    display: flex;
     position: relative;
     cursor: pointer;
   }
 
-  &__svgsearch,
-  &__svgchoose {
-    fill: variable.$inputandfooter-color;
-    width: 12px;
-    height: 12px;
-  }
+  // &__svgsearch,
+  // &__svgchoose {
+  //   fill: variable.$inputandfooter-color;
+  //   width: 12px;
+  //   height: 12px;
+  // }
 
-  &__svgsearch {
-    position: absolute;
-    right: 45px;
-    top: 14px;
+  // &__svgsearch {
+  //   position: absolute;
+  //   right: 45px;
+  //   top: 14px;
 
-    @media screen and (min-width: 768px) {
-      right: 409px;
-    }
+  //   @media screen and (min-width: 768px) {
+  //     right: 409px;
+  //   }
 
-    @media screen and (min-width: 1200px) {
-      right: 633px;
-    }
-  }
+  //   @media screen and (min-width: 1200px) {
+  //     right: 633px;
+  //   }
+  // }
 
-  &__svgchoose {
-    position: absolute;
-    right: 45px;
-    top: 83px;
+  // &__svgchoose {
+  //   position: absolute;
+  //   right: 45px;
+  //   top: 83px;
 
-    @media screen and (min-width: 768px) {
-      top: 16px;
-      right: 115px;
-    }
+  //   @media screen and (min-width: 768px) {
+  //     top: 16px;
+  //     right: 115px;
+  //   }
 
-    @media screen and (min-width: 1200px) {
-      right: 337px;
-    }
-  }
+  //   @media screen and (min-width: 1200px) {
+  //     right: 337px;
+  //   }
+  // }
 }
 
 .choose {
